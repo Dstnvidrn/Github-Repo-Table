@@ -15,7 +15,7 @@ h1{
     margin: 2rem auto;
     background-color: teal;
     color:#f3f3f3;
-    max-width: 50%;
+    max-width: 50rem;
     padding: 2rem;
     border-radius: 10px;
 }
@@ -25,7 +25,7 @@ main{
     margin: 0 auto;
 }
 .hidden {
-    display: none;
+    visibility: hidden;
 }
 #table-container {
     margin: 0 auto;
@@ -38,6 +38,11 @@ main{
     max-width: fit-content;
     gap: 1rem;
     
+}
+#search-form {
+    /* background-color: red; */
+    max-width: 50rem;
+    margin: 0 auto 1rem auto;
 }
 .btn {
    
@@ -54,8 +59,7 @@ main{
 
 }
 
-.search-bar{
-    
+.search-bar{   
     
     padding: .8rem;
     font-size: 1.2rem;
@@ -72,7 +76,7 @@ table{
     border-collapse: collapse;
     background-color: #fff;
     font-size: 0.9em;
-    min-width: 45rem;
+    min-width: 50rem;
     border-radius: 10px 10px 0 0;
     box-shadow: 0 0 20px rgba(0, 0, 0, .15);
     overflow: hidden;
@@ -125,8 +129,8 @@ table{
 .loader {
     position: absolute;
    
-    width: 20rem;
-    height: 20rem;
+    width: 10rem;
+    height: 10rem;
     border-radius: 50%;
     border: 5px solid #ccc;
     border-top-color: teal;
@@ -136,10 +140,10 @@ table{
 }
 
 .form-inputs {
-    
+    margin: 0 auto;
     display: flex;
-    gap: 2rem
-    
+    gap: 2rem;
+    width: 50%;
 }
 @keyframes loader {
     0% {

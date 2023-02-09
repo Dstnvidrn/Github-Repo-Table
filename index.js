@@ -1,4 +1,4 @@
-const combined = [];
+let combined = [];
 let sortedNames = [];
 let sortedIds = [];
 let urlArray = [];
@@ -9,13 +9,18 @@ const blurOverlay = document.querySelector("#overlay");
 const loader = document.querySelector('#loader');
 const submitButton = document.querySelector('.btn--submit');
 const searchBar = document.querySelector('.search-bar');
-const searchForm = document.querySelector('#search-form')
+const searchForm = document.querySelector('#search-form');
+
+
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     tableBody.innerHTML = '';
+    combined = [];
     getRepos(searchBar.value);
-    table.classList.remove('hidden');
+    
 })
+
+
 
 tableHeadings.forEach(heading => {
     heading.addEventListener('click', (e) => {    
@@ -44,14 +49,15 @@ function getRepos(user) {
             }
             
             data.forEach((repo,index) => {
-            buildTable(repo.name, repo.id, repo.html_url);
             populateCombinedArray(repo.name,repo.id, repo.html_url,index);
+            buildTable(repo.name, repo.id, repo.html_url);
            });
         }).catch(error => {
 
             console.error(error);
         }).finally( () => {
             setTimeout( () => {
+                table.classList.remove('hidden');
                 loader.classList.remove('loader');
                 blurOverlay.classList.remove('overlay');
 
@@ -81,7 +87,7 @@ function sortTable(sortBy='name') {
             combined.sort((a,b) => a[0].toLowerCase() === b[0].toLowerCase() ? 0 : a[0].toLowerCase() > b[0].toLowerCase() ? -1 : 1);
             namesAscending = !namesAscending;
             sortCombined();
-            console.log(combined)
+            
         } else {
             combined.sort((a,b) => a[0].toLowerCase() === b[0].toLowerCase() ? 0 : a[0].toLowerCase() < b[0].toLowerCase() ? -1 : 1);
             namesAscending = !namesAscending;
@@ -114,7 +120,8 @@ function sortTable(sortBy='name') {
         })        
     }    
 }
-function populateCombinedArray(name, id, url, index) {    
+function populateCombinedArray(name, id, url) {  
+    
     combined.push([name,Number(id), url]);
 }
 function searchUserRepo() {
