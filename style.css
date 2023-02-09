@@ -19,38 +19,54 @@ h1{
     padding: 2rem;
     border-radius: 10px;
 }
-nav{
-    padding-block: 1.2rem;
-    background-color: #252525;
-}
-.nav-links {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    align-items: center;
-    margin-inline: 4rem;
-    font-size: 1.8rem;
-    color: #f9f9f9;
-}
+
 main{
     max-width: 120rem;
     margin: 0 auto;
+}
+.hidden {
+    display: none;
 }
 #table-container {
     margin: 0 auto;
     /* display: inline-block; */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
     max-width: fit-content;
+    gap: 1rem;
     
 }
 .btn {
-    padding: 1rem;
+   
+    color: #f3f3f3;
+    padding: .8rem;
+    background-color: teal;
+    border-radius: 10px;
+    cursor: pointer;
     
 }
+.btn--submit{
+    border: none;
+    font-size: 1.1rem;
 
+}
+
+.search-bar{
+    
+    
+    padding: .8rem;
+    font-size: 1.2rem;
+    color: #454545;
+    border-radius: 10px;
+    
+    border: 1px solid #ccc;
+}
+.search-bar:focus {
+    box-shadow: 0 0 10px teal;
+}
 table{
     margin: 0 auto;
     border-collapse: collapse;
@@ -86,18 +102,13 @@ table{
 #repo-table tbody tr:last-of-type {
     border-bottom: 4px solid teal;
 }
-a:link, a:visited {
+.btn:link, .btn:visited {
     text-decoration: none;
-    color: #f3f3f3;
-    padding: .8rem;
-    background-color: teal;
-    border-radius: 10px;
-    
 }
-a:hover {
+.btn:hover {
     background-color: rgb(2, 153, 153);
 }
-a:active {
+.btn:active {
     background-color: rgb(2, 175, 175);
 }
 .overlay {
@@ -124,6 +135,12 @@ a:active {
     animation: loader 1s linear infinite;
 }
 
+.form-inputs {
+    
+    display: flex;
+    gap: 2rem
+    
+}
 @keyframes loader {
     0% {
         transform: rotate(0deg);

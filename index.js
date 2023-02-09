@@ -3,11 +3,19 @@ let sortedNames = [];
 let sortedIds = [];
 let urlArray = [];
 const tableBody = document.querySelector('#table-body');
+const table = document.querySelector('table');
 const tableHeadings = document.querySelectorAll('.table-heading');
 const blurOverlay = document.querySelector("#overlay");
 const loader = document.querySelector('#loader');
-
-
+const submitButton = document.querySelector('.btn--submit');
+const searchBar = document.querySelector('.search-bar');
+const searchForm = document.querySelector('#search-form')
+searchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    tableBody.innerHTML = '';
+    getRepos(searchBar.value);
+    table.classList.remove('hidden');
+})
 
 tableHeadings.forEach(heading => {
     heading.addEventListener('click', (e) => {    
@@ -19,9 +27,7 @@ tableHeadings.forEach(heading => {
 })
 })
 
-function getRepos() {
-    const user = prompt("Enter Github username: ");
-    // const user = 'kruzik762'
+function getRepos(user) {    
     fetch(`https://api.github.com/users/${user}/repos`)
         .then(response => {
             blurOverlay.classList.add('overlay');
@@ -58,7 +64,7 @@ function buildTable(name, id, link) {
     <tr>
     <td>${name}</td>
     <td>${id}</td>
-    <td><a href="${link}">View</a></td>
+    <td><a href="${link}" class="btn">View</a></td>
     </tr>`
     );
 }
@@ -111,5 +117,7 @@ function sortTable(sortBy='name') {
 function populateCombinedArray(name, id, url, index) {    
     combined.push([name,Number(id), url]);
 }
-getRepos();
- 
+function searchUserRepo() {
+
+}
+searchUserRepo();
