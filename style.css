@@ -1,0 +1,134 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    /* outline: auto; */
+}
+:root{
+    --cell-gap: 15rem;
+}
+body{ 
+    background-color: #ddd;
+}
+h1{
+    text-align: center;
+    margin: 2rem auto;
+    background-color: teal;
+    color:#f3f3f3;
+    max-width: 50%;
+    padding: 2rem;
+    border-radius: 10px;
+}
+nav{
+    padding-block: 1.2rem;
+    background-color: #252525;
+}
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-inline: 4rem;
+    font-size: 1.8rem;
+    color: #f9f9f9;
+}
+main{
+    max-width: 120rem;
+    margin: 0 auto;
+}
+#table-container {
+    margin: 0 auto;
+    /* display: inline-block; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: fit-content;
+    
+}
+.btn {
+    padding: 1rem;
+    
+}
+
+table{
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    font-size: 0.9em;
+    min-width: 45rem;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .15);
+    overflow: hidden;
+    text-transform: uppercase;   
+    
+}
+
+#repo-table thead tr {
+    background-color: teal;
+    color: #f3f3f3;
+    text-align: left;    
+    font-weight: bold;
+}
+.table-heading:hover {
+    cursor: pointer;
+    background-color: rgb(2, 153, 153);
+}
+.table-heading:active {
+    background-color: rgb(2, 175, 175);
+}
+#repo-table th, table td {
+    padding: 1.2rem 1.5rem;
+}
+#repo-table tbody tr:nth-of-type(odd) {
+    background-color: #eee;
+}
+#repo-table tbody tr:last-of-type {
+    border-bottom: 4px solid teal;
+}
+a:link, a:visited {
+    text-decoration: none;
+    color: #f3f3f3;
+    padding: .8rem;
+    background-color: teal;
+    border-radius: 10px;
+    
+}
+a:hover {
+    background-color: rgb(2, 153, 153);
+}
+a:active {
+    background-color: rgb(2, 175, 175);
+}
+.overlay {
+    position: absolute;
+    top:0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .8);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+
+}
+.loader {
+    position: absolute;
+   
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    border: 5px solid #ccc;
+    border-top-color: teal;
+    transform: translate(-50%, 50%);
+    
+    animation: loader 1s linear infinite;
+}
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+}
+}
