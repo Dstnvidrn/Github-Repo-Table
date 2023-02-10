@@ -6,10 +6,10 @@
 }
 :root{
     --cell-gap: 15rem;
-}
-body{ 
     background-color: #ddd;
+    font-family: sans-serif;
 }
+
 h1{
     text-align: center;
     margin: 2rem auto;
@@ -60,7 +60,7 @@ main{
 }
 
 .search-bar{   
-    
+    font-family: inherit;
     padding: .8rem;
     font-size: 1.2rem;
     color: #454545;
@@ -138,7 +138,7 @@ table{
     border-top-color: teal;
     transform: translate(-50%, 50%);
     
-    animation: loader 1s linear infinite;
+    animation: loader 250ms linear infinite;
 }
 
 .form-inputs {
