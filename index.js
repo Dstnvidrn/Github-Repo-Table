@@ -70,7 +70,7 @@ function buildTable(name, id, link) {
     <tr>
     <td>${name}</td>
     <td>${id}</td>
-    <td><a href="${link}" class="btn">View</a></td>
+    <td><a href="${link}" class="btn" target="_blank">View</a></td>
     </tr>`
     );
 }
