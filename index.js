@@ -24,9 +24,9 @@ searchForm.addEventListener('submit', (e) => {
 
 tableHeadings.forEach(heading => {
     heading.addEventListener('click', (e) => {    
-    if(e.currentTarget.textContent === 'Name') {
+    if(e.currentTarget.id === 'heading-name') {
         sortTable('name');       
-    }else if (e.currentTarget.textContent === 'ID') {
+    }else if (e.currentTarget.id === 'heading-id') {
         sortTable('id')
     } 
 })
@@ -84,11 +84,13 @@ function sortTable(sortBy='name') {
         
         tableBody.innerHTML = '';              
         if(namesAscending) {
+            addSortArrows(sortBy, namesAscending);
             combined.sort((a,b) => a[0].toLowerCase() === b[0].toLowerCase() ? 0 : a[0].toLowerCase() > b[0].toLowerCase() ? -1 : 1);
             namesAscending = !namesAscending;
             sortCombined();
             
         } else {
+            addSortArrows(sortBy, namesAscending);
             combined.sort((a,b) => a[0].toLowerCase() === b[0].toLowerCase() ? 0 : a[0].toLowerCase() < b[0].toLowerCase() ? -1 : 1);
             namesAscending = !namesAscending;
             sortCombined();
@@ -99,9 +101,11 @@ function sortTable(sortBy='name') {
         tableBody.innerHTML = '';
         // populateCombinedArray();
         if(idsAscending) {
+            addSortArrows(sortBy, idsAscending);
             combined.sort((a,b) => a[1] - b[1]);
             idsAscending = !idsAscending;
         } else {
+            addSortArrows(sortBy, idsAscending);
             combined.sort((a,b) => b[1] - a[1]);
             idsAscending = !idsAscending;            
         }        
@@ -124,7 +128,18 @@ function populateCombinedArray(name, id, url) {
     
     combined.push([name,Number(id), url]);
 }
-function searchUserRepo() {
-
+function addSortArrows(sortby, isAscending) {
+    if(sortby === 'name' && isAscending) {
+        document.querySelector('#heading-name').innerHTML = 'Name &downarrow;';
+        document.querySelector('#heading-id').textContent = 'ID';
+    } else if (sortby === 'name' && !isAscending) {
+        document.querySelector('#heading-name').innerHTML = 'Name &uparrow;';
+        document.querySelector('#heading-id').textContent = 'ID';
+    } else if (sortby === 'id' && isAscending) {
+        document.querySelector('#heading-id').innerHTML = 'ID &uparrow;';
+        document.querySelector('#heading-name').textContent = 'Name';
+    }else if (sortby === 'id' && !isAscending) {
+        document.querySelector('#heading-id').innerHTML = 'ID &downarrow;';
+        document.querySelector('#heading-name').textContent = 'Name';
+    } 
 }
-searchUserRepo();
