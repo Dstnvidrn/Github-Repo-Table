@@ -12,15 +12,20 @@ const searchBar = document.querySelector('.search-bar');
 const searchForm = document.querySelector('#search-form');
 
 
+searchBar.addEventListener('keyup', () => {
+    if(searchBar.value && !searchBar.value.startsWith(' ')) {
+        submitButton.removeAttribute('disabled');
+    }else {
+        submitButton.setAttribute('disabled', 'disabled');
+    }
+})
+
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     tableBody.innerHTML = '';
     combined = [];
-    getRepos(searchBar.value);
-    
+    getRepos(searchBar.value);    
 })
-
-
 
 tableHeadings.forEach(heading => {
     heading.addEventListener('click', (e) => {    
@@ -87,19 +92,16 @@ function sortTable(sortBy='name') {
             addSortArrows(sortBy, namesAscending);
             combined.sort((a,b) => a[0].toLowerCase() === b[0].toLowerCase() ? 0 : a[0].toLowerCase() > b[0].toLowerCase() ? -1 : 1);
             namesAscending = !namesAscending;
-            sortCombined();
-            
+            sortCombined();            
         } else {
             addSortArrows(sortBy, namesAscending);
             combined.sort((a,b) => a[0].toLowerCase() === b[0].toLowerCase() ? 0 : a[0].toLowerCase() < b[0].toLowerCase() ? -1 : 1);
             namesAscending = !namesAscending;
-            sortCombined();
-            console.log(combined)
+            sortCombined();            
         }      
 
     } else if (sortBy === 'id') {
         tableBody.innerHTML = '';
-        // populateCombinedArray();
         if(idsAscending) {
             addSortArrows(sortBy, idsAscending);
             combined.sort((a,b) => a[1] - b[1]);

@@ -15,13 +15,12 @@
         <h1>Github Repositories</h1>
         <form id="search-form">
             <div class="form-inputs">
-                <input type="search" class="search-bar" placeholder="Github username">
-                <button class="btn btn--submit">Search</button>
+                <input type="search" class="search-bar" placeholder="Github username"/>
+                <button class="btn btn--submit" disabled>Search</button>
 
             </div>
         </form>
-        <div id="table-container" >
-            
+        <div id="table-container" >            
             <table id="repo-table" class="hidden">
                 <thead id="table-head">
                     <tr id="table-head-row">
@@ -33,10 +32,10 @@
                 <tbody id="table-body">
                     
                 </tbody>
-                <div id="overlay"></div>
-                <div id="loader"></div>
             </table>
+            <div id="overlay"></div><div id="loader"></div>
         </div>
+    </div>
         
     </main>
 </body>
