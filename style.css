@@ -123,6 +123,7 @@ table{
     height: 100%;
     background-color: rgba(50, 50, 50, .8);
     backdrop-filter: blur(5px);
+    border-radius: 10px 10px 0 0;
     
 }
 .loader {
