@@ -12,32 +12,31 @@
 <body>
     
     <main>
-        <h1>Github Repositories</h1>
+        <div class="heading-container">
+            <h1>Github Repositories</h1>
+            <span class="beta">Beta</span>
+        </div>
         <form id="search-form">
             <div class="form-inputs">
                 <input type="search" class="search-bar" placeholder="Github username"/>
                 <button class="btn btn--submit" disabled>Search</button>
-
             </div>
         </form>
-        <div id="table-container" >   
-            <div class="flex-container">
-
-                <table id="repo-table" class="hidden">
-                    <thead id="table-head">
-                        <tr id="table-head-row">
-                            <th class="table-heading" id="heading-name">Name</th>
-                            <th class="table-heading" id="heading-id">ID</th>
-                            <th>Source Code</th>
-                        </tr>
-                    </thead>
-                    <tbody id="table-body">
-                        
-                    </tbody>
-                </table>
-                <div id="overlay"></div>
-            </div>         
-            <div id="loader"></div>
+        <div id="table-container">
+            <table id="repo-table" class="hidden">
+                <thead id="table-head">
+                    <tr id="table-head-row">
+                        <th class="table-heading" id="heading-name">Name</th>
+                        <th class="table-heading" id="heading-id">ID</th>
+                        <th>Source Code</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    
+                </tbody>
+            </table>
+            <div id="overlay"></div>
+            <div id="loader"></div>                   
         </div>
     </div>
         
