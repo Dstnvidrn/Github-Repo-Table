@@ -10,6 +10,7 @@ const loader = document.querySelector("#loader");
 const submitButton = document.querySelector(".btn--submit");
 const searchBar = document.querySelector(".search-bar");
 const searchForm = document.querySelector("#search-form");
+const errorMessage = document.querySelector('#error-message');
 
 searchBar.addEventListener("keyup", () => {
   if (searchBar.value && !searchBar.value.startsWith(" ")) {
@@ -41,14 +42,19 @@ function getRepos(user) {
     .then((response) => {
       blurOverlay.classList.add("overlay");
       loader.classList.add("loader");
-      if (!response.ok) {
-        throw new Error("User Profile not found");
+      if (!response.ok) {        
+        errorMessage.textContent = `Profile "${user}" was not found.`
+        errorMessage.classList.add('fade');
+        errorMessage.classList.remove('hidden')
+        throw new Error(`Profile ${user} not found`);     
       }
+      errorMessage.classList.remove('fade');
+      errorMessage.classList.add('hidden');
       return response.json();
     })
     .then((data) => {
       if (!data) {
-        throw new Error("User Profile not found");
+        throw new Error(`Profile ${user} not found`);
       }
 
       data.forEach((repo, index) => {
@@ -152,3 +158,6 @@ function addSortArrows(sortby, isAscending) {
     document.querySelector("#heading-name").textContent = "Name";
   }
 }
+
+
+

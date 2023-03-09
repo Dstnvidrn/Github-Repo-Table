@@ -12,7 +12,7 @@
 <body>
     
     <main>
-        <div class="heading-container">
+        <div class="container main">
             <h1>Github Repositories</h1>
             <span class="beta">Beta</span>
         </div>
@@ -22,7 +22,8 @@
                 <button class="btn btn--submit" disabled>Search</button>
             </div>
         </form>
-        <div id="table-container">
+        <p id="error-message" class="hidden"></p>
+        <div id="table-container" class="container">
             <table id="repo-table" class="hidden">
                 <thead id="table-head">
                     <tr id="table-head-row">
@@ -39,7 +40,12 @@
             <div id="loader"></div>                   
         </div>
     </div>
-        
+        <footer id="footer">
+            <ul class="details-list">
+                <li class="details" id="repo-count"></li>
+                <li class="details" id=""></li>
+            </ul>
+        </footer>
     </main>
 </body>
 </html>
