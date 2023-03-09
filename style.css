@@ -2,7 +2,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  outline: 1px solid grey;
+  /* outline: 1px solid grey; */
 }
 :root {
   --cell-gap: 15rem;
@@ -49,8 +49,8 @@
   
 }
 .fade {
-  animation: fade 1500ms forwards ease-in-out;
-  
+  animation: fade 5000ms  forwards ease-in-out;
+
 }
 .beta {
   rotate: 30deg;
@@ -90,6 +90,7 @@
   color: #454545;
   border-radius: 10px;
   border: 1px solid #ccc;
+  
 }
 .search-bar:focus {
   box-shadow: 0 0 10px teal;
@@ -175,10 +176,14 @@ table td {
   }
 }
 @keyframes fade {
-  0% {
+  0%, 100% {
     opacity: 0;
+    visibility: hidden;
+    
+
   }
-  100% {
+  50% {
     opacity: .7;
+    visibility: visible;
   }
 }

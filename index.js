@@ -26,6 +26,10 @@ searchForm.addEventListener("submit", (e) => {
   combined = [];
   getRepos(searchBar.value);
 });
+errorMessage.addEventListener('animationend', () => {
+  errorMessage.classList.remove('fade');
+  errorMessage.classList.add('hidden');
+})
 
 tableHeadings.forEach((heading) => {
   heading.addEventListener("click", (e) => {
@@ -44,12 +48,15 @@ function getRepos(user) {
       loader.classList.add("loader");
       if (!response.ok) {        
         errorMessage.textContent = `Profile "${user}" was not found.`
-        errorMessage.classList.add('fade');
         errorMessage.classList.remove('hidden')
+        errorMessage.classList.add('fade');
+        searchBar.style.border = '2px solid #ff0000';
         throw new Error(`Profile ${user} not found`);     
       }
-      errorMessage.classList.remove('fade');
-      errorMessage.classList.add('hidden');
+      searchBar.style.border = '1px solid #ccc';
+      
+      
+      
       return response.json();
     })
     .then((data) => {
@@ -65,13 +72,14 @@ function getRepos(user) {
     .catch((error) => {
       console.error(error);
     })
-    .finally(() => {
+    .finally(() => {      
       setTimeout(() => {
         table.classList.remove("hidden");
         loader.classList.remove("loader");
-        blurOverlay.classList.remove("overlay");
+        blurOverlay.classList.remove("overlay")
       }, 1200);
     });
+    
 }
 
 function buildTable(name, id, link) {
